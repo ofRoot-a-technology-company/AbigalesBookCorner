@@ -123,8 +123,8 @@
 						<div class="content">
 							<p><strong>Proin tempus feugiat</strong> sed varius enim lorem ullamcorper dolore aliquam aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore.</p>
 							<ul class="actions">
-								<li><a href="#" class="button primary large">Get Started</a></li>
-								<li><a href="#" class="button large">Learn More</a></li>
+								<li><a href="/blog/all" class="button primary large">Read Blog</a></li>
+								<!-- <li><a href="#" class="button large">Learn More</a></li> -->
 							</ul>
 						</div>
 					</section>
