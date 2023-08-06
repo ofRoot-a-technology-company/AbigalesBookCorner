@@ -9,7 +9,7 @@
 		<title>Future Imperfect by HTML5 UP</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="assets/css/main.css" />
+        <link rel="stylesheet" href="{{ asset('css/blog/main.css') }}" />
 	</head>
 	<body class="is-preload">
 
@@ -18,7 +18,7 @@
 
 				<!-- Header -->
 					<header id="header">
-						<h1><a href="index.html">Future Imperfect</a></h1>
+						<h1><a href="/">Abigales Book Corner</a></h1>
 						<nav class="links">
 							<ul>
 								<li><a href="#">Lorem</a></li>
@@ -501,7 +501,7 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
 							<section id="intro">
 								<a href="#" class="logo"><img src="images/logo.jpg" alt="" /></a>
 								<header>
-									<h2>Future Imperfect</h2>
+									<h2>Abigales Book Corner</h2>
 									<p>Another fine responsive site template by <a href="http://html5up.net">HTML5 UP</a></p>
 								</header>
 							</section>

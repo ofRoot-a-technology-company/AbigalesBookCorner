@@ -14,7 +14,7 @@ class FormController extends Controller
 
         // Perform any desired actions with the email and password data
         // For example, you can send an email or save it to the database
-        if($email==='abby.mcdaniel44@gmail.com' && $password==='opensaysme'){
+        if($email==='abby.mcdaniel44@gmail.com' && $password==='trinket'){
             return view('dashboard');
         }
 
