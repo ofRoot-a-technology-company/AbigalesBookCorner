@@ -559,19 +559,11 @@ class BlogController extends Controller
      */
     public function destroy($blogId)
     {
-
-        dd($blogId);
-        // dd('destroy method', $articleId);
-        // function : get correct article and its id
-        // reason : used for finding correct article to delete/destroy
-        // dd(Blog::where('id', $articleId)->get());
-
+        $blogToBeDeleted = Blog::find($blogId);
         try {
-            \App\Models\Blog::delete("delete from articles where id = ". $blogId);
-            // \DB::delete("delete from articles where id = " . $blogId);
+            $blogToBeDeleted->delete();
             return redirect()->route('articles/edit/index')->with('message', 'article deleted.');
         } catch (\Exception $e){
-            // - in case on error/exception do these things
             $log_error = $e->getmessage();
             return redirect()->route('articles')->with('message', 'Failed to delete article - contact ofRoot customer service, or try again.');
         }

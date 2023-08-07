@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\FormController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BlogController;
+use App\Http\Controllers\ProductsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -64,5 +65,26 @@ Route::post('/blog/delete/{blogPost}', [BlogController::class, 'destroy']);
 // Route::get('/blog/edit', function(){
 //     return view('blog.edit');
 // })->name('editBlog');
+
+
+// Ecommerce routes
+// 1 Book/pdf related route,view
+Route::get('/shop/books', function(){
+    return view('ecommerce.books');
+});
+
+// 2 General route,view
+Route::get('/shop/general', function(){
+    return view('ecommerce.general');
+});
+
+// 3 product admin route, view
+Route::get('/shop/admin', function(){
+    return view('ecommerce.admin');
+})->name('productAdmin');
+
+// 4 List or crud routes for Products
+Route::get('/shop/products/edit', [ProductsController::class, 'edit'])->name('editProducts');
+
 
 require __DIR__.'/auth.php';

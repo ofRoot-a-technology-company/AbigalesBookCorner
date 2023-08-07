@@ -31,7 +31,7 @@
 				<!-- Section -->
 					<section id="first">
 						<header>
-							<h2>Magna sed nullam nisl adipiscing</h2>
+							<h2>About Us / Mission</h2>
 						</header>
 						<div class="content">
 							<p><strong>Lorem ipsum dolor</strong> sit amet consectetur adipiscing elit. Duis dapibus rutrum facilisis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Etiam tristique libero eu nibh porttitor amet fermentum. Nullam venenatis erat id vehicula ultrices sed ultricies condimentum. Magna sed etiam consequat, et lorem adipiscing sed nulla. Volutpat nisl et tempus et dolor libero, feugiat magna tempus, sed et lorem adipiscing.</p>
@@ -42,7 +42,7 @@
 				<!-- Section -->
 					<section>
 						<header>
-							<h2>Feugiat consequat tempus ultrices</h2>
+							<h2>Offerings</h2>
 						</header>
 						<div class="content">
 							<p><strong>Etiam tristique libero</strong> eu nibh porttitor amet fermentum. Nullam venenatis erat id vehicula ultrices sed ultricies condimentum.</p>
@@ -61,15 +61,18 @@
 				<!-- Section -->
 					<section>
 						<header>
-							<h2>Ultrices erat magna sed condimentum</h2>
+							<h2>Shop With Us</h2>
 						</header>
 						<div class="content">
-							<p><strong>Integer mollis egestas</strong> nam maximus erat id euismod egestas. Pellentesque sapien ac quam. Lorem ipsum dolor sit nullam.</p>
-
+							<p><strong>Abigales Book Corner</strong> Navigate here to see our latest books.</p>
+                            <ul class="actions">
+								<li><a href="/shop/books" class="button primary large">Books</a></li>
+								<li><a href="/shop/general" class="button large">General</a></li>
+							</ul>
 							<!-- Section -->
 								<section>
 									<header>
-										<h3>Erat aliquam</h3>
+										<h3>dsdsd</h3>
 										<p>Vehicula ultrices dolor amet ultricies et condimentum. Magna sed etiam consequat, et lorem adipiscing sed dolor sit amet, consectetur amet do eiusmod tempor incididunt  ipsum suspendisse ultrices gravida.</p>
 									</header>
 									<div class="content">
