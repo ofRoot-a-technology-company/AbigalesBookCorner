@@ -12,7 +12,6 @@ class BlogController extends Controller
 
         $authorizedUser=\Auth::user() ?? null;
 
-
         if (empty($authorizedUser)){
             return view('welcome');
         }
@@ -27,13 +26,9 @@ class BlogController extends Controller
     | ---------------
     */
     public function index(){
-        $blogPosts = Blog::latest()->paginate(10) ?? null;
-        $featuredBlogPosts = Blog::where('type', 'Featured')->latest()->get() ?? null;
-        $shopRelatedPosts = Blog::where('type', 'Shop')->latest()->get() ?? null;
+        $blogPosts = Blog::latest()->paginate(10);
         return view('blog.index', [
             'blogPosts' => $blogPosts,
-            'featuredBlogPosts' => $featuredBlogPosts,
-            'shopRelatedPosts' => $shopRelatedPosts,
         ]);
     }
 
@@ -430,7 +425,7 @@ class BlogController extends Controller
         //     'paragraph3Heading10' => 'nullable|string|max:600|min:80',
         // ]);
 
-// UPDATE STORED ARTICLE WITH NEW FIELDS
+        // UPDATE STORED ARTICLE WITH NEW FIELDS
         $storedArticleToBeEdited = Blog::find($articleId);
 
 

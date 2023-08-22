@@ -18,7 +18,7 @@
 					<section class="intro">
 						<header>
 							<h1>Abigales Reading Corner</h1>
-							<p>Hello, I'm Abigale...</p>
+							<p>Enchanting Tales for Curious Minds</p>
 							<ul class="actions">
 								<li><a href="#first" class="arrow scrolly"><span class="label">Next</span></a></li>
 							</ul>
@@ -34,7 +34,7 @@
 							<h2>About Us / Mission</h2>
 						</header>
 						<div class="content">
-							<p><strong>Lorem ipsum dolor</strong> sit amet consectetur adipiscing elit. Duis dapibus rutrum facilisis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Etiam tristique libero eu nibh porttitor amet fermentum. Nullam venenatis erat id vehicula ultrices sed ultricies condimentum. Magna sed etiam consequat, et lorem adipiscing sed nulla. Volutpat nisl et tempus et dolor libero, feugiat magna tempus, sed et lorem adipiscing.</p>
+							<p><strong>Our Passion for Stories</strong> We understand the transformative power of a good story. Every book we publish is a gateway to adventures, lessons, and emotions that shape a child's worldview. Our team of dedicated writers, illustrators, and editors are committed to crafting tales that entertain, educate, and foster a lifelong love for reading.</p>
 							<span class="image main"><img src="{{ asset('images/second.png') }}" alt="" /></span>
 						</div>
 					</section>
@@ -42,19 +42,12 @@
 				<!-- Section -->
 					<section>
 						<header>
-							<h2>Offerings</h2>
+							<h2>Outreach / Charity</h2>
 						</header>
 						<div class="content">
-							<p><strong>Etiam tristique libero</strong> eu nibh porttitor amet fermentum. Nullam venenatis erat id vehicula ultrices sed ultricies condimentum.</p>
-							<ul class="feature-icons">
-								<li class="icon solid fa-laptop">Consequat tempus</li>
-								<li class="icon solid fa-bolt">Etiam adipiscing</li>
-								<li class="icon solid fa-signal">Libero nullam</li>
-								<li class="icon solid fa-cog">Blandit condimentum</li>
-								<li class="icon solid fa-map-marker-alt">Lorem ipsum dolor</li>
-								<li class="icon solid fa-code">Nibh amet venenatis</li>
-							</ul>
-							<p>Vehicula ultrices sed ultricies condimentum. Magna sed etiam consequat, et lorem adipiscing sed nulla. Volutpat nisl et tempus et dolor libero, feugiat magna tempus, sed et lorem adipiscing.</p>
+							<p><strong>Join Us in Writing the Future</strong> | Empowering Communities, One Story at a Time</p>
+
+							<p>At <strong>Abigales Book Corner</strong>, we're dedicated to fostering a love for reading, inspiring lifelong learners, and extending our hands to communities in need. With every book you choose, you're making an impact that echoes through generations.</p>
 						</div>
 					</section>
 
@@ -64,23 +57,24 @@
 							<h2>Shop With Us</h2>
 						</header>
 						<div class="content">
-							<p><strong>Abigales Book Corner</strong> Navigate here to see our latest books.</p>
+							<p><strong>Abigales Book Corner</strong> Navigate here to see our latest books, and merch.</p>
                             <ul class="actions">
 								<li><a href="/shop/books" class="button primary large">Books</a></li>
-								<li><a href="/shop/general" class="button large">General</a></li>
+								<li><a href="/shop/general" class="button large">Merch</a></li>
 							</ul>
 							<!-- Section -->
 								<section>
 									<header>
-										<h3>dsdsd</h3>
-										<p>Vehicula ultrices dolor amet ultricies et condimentum. Magna sed etiam consequat, et lorem adipiscing sed dolor sit amet, consectetur amet do eiusmod tempor incididunt  ipsum suspendisse ultrices gravida.</p>
+										<h3>Lastest Publications</h3>
+										<p>This is our latest book. A percentage of all proceeds go towards a trusted charity.</p>
 									</header>
 									<div class="content">
 										<div class="gallery">
-											<a href="images/gallery/fulls/01.jpg" class="landscape"><img src="images/gallery/thumbs/01.jpg" alt="" /></a>
-											<a href="images/gallery/fulls/02.jpg"><img src="images/gallery/thumbs/02.jpg" alt="" /></a>
-											<a href="images/gallery/fulls/03.jpg"><img src="images/gallery/thumbs/03.jpg" alt="" /></a>
-											<a href="images/gallery/fulls/04.jpg" class="landscape"><img src="images/gallery/thumbs/04.jpg" alt="" /></a>
+                                            @if(isset($latestBooks))
+                                                @foreach($latestBooks as $book)
+                                                    <a href=" {{ $book->source }} " class="img-fluid"><img src="{{ $book->image }}" alt="book product image" /></a>
+                                                @endforeach
+                                            @endif
 										</div>
 									</div>
 								</section>
@@ -88,20 +82,23 @@
 							<!-- Section -->
 								<section>
 									<header>
-										<h3>Nisl consequat</h3>
-										<p>Aenean ornare velit lacus, ac varius enim ullamcorper eu. Proin aliquam sed facilisis ante interdum congue. Integer mollis, nisl amet convallis, porttitor magna ullamcorper, amet mauris. Ut magna finibus nisi nec lacinia ipsum maximus.</p>
+										<h3>Latest Merch</h3>
+										<p>Here you can view and shop our latest merch, a percentage of all proceeds go towards a trusted charity.</p>
 									</header>
 									<div class="content">
 										<div class="gallery">
-											<a href="images/gallery/fulls/05.jpg" class="landscape"><img src="images/gallery/thumbs/05.jpg" alt="" /></a>
-											<a href="images/gallery/fulls/06.jpg"><img src="images/gallery/thumbs/06.jpg" alt="" /></a>
-											<a href="images/gallery/fulls/07.jpg"><img src="images/gallery/thumbs/07.jpg" alt="" /></a>
+                                            @if(isset($latestGeneralProducts))
+                                                @foreach($latestGeneralProducts as $product)
+                                                    <a href=" {{ $product->source }} " class="img-fluid"><img src="{{ $product->image }}" alt="product image" /></a>
+                                                @endforeach
+                                            @endif
 										</div>
 									</div>
 								</section>
 
+
 							<!-- Section -->
-								<section>
+								<!-- <section>
 									<header>
 										<h3>Lorem gravida</h3>
 										<p>Proin aliquam facilisis ante interdum. Sed nulla amet lorem feugiat tempus aenean ornare velit lacus, ac varius sed enim lorem ullamcorper dolore.  ac varius enim lorem ullamcorper dolore. Proin aliquam facilisis.</p>
@@ -113,7 +110,7 @@
 											<a href="images/gallery/fulls/10.jpg" class="landscape"><img src="images/gallery/thumbs/10.jpg" alt="" /></a>
 										</div>
 									</div>
-								</section>
+								</section> -->
 
 						</div>
 					</section>
@@ -124,7 +121,7 @@
 							<h2>The Blog</h2>
 						</header>
 						<div class="content">
-							<p><strong>Proin tempus feugiat</strong> sed varius enim lorem ullamcorper dolore aliquam aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore.</p>
+							<p><strong>Our blog </strong>delves into a rich tapestry of content, ranging from our handpicked favorite books, to fresh studies that spotlight children's education. We proudly share insights into the charitable initiatives we support, and keep you abreast of the latest developments in the enchanting realms of kids' animation and educational advancements. Plus, we're excited to offer valuable tips to enhance your journey alongside us!</p>
 							<ul class="actions">
 								<li><a href="/blog/all" class="button primary large">Read Blog</a></li>
 								<!-- <li><a href="#" class="button large">Learn More</a></li> -->
@@ -401,13 +398,14 @@ print 'Sorted in ' + i + ' iterations.';</code></pre>
 				-->
 
 				<!-- Section -->
-					<section>
+					<!-- <section>
 						<header>
 							<h2>Get in touch</h2>
 						</header>
 						<div class="content">
-							<p><strong>Auctor commodo</strong> interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis.</p>
-							<form>
+							<p><strong>Contact us</strong> We love to hear from our community</p>
+							<form action="" method="post">
+                                @csrf
 								<div class="fields">
 									<div class="field half">
 										<input type="text" name="name" id="name" placeholder="Name" />
@@ -451,10 +449,10 @@ print 'Sorted in ' + i + ' iterations.';</code></pre>
 								</li>
 							</ul>
 						</footer>
-					</section>
+					</section> -->
 
 				<!-- Copyright -->
-					<div class="copyright">&copy; Untitled. All rights reserved. Design: <a href="https://html5up.net">HTML5 UP</a>.</div>
+					<div class="copyright">Application by &copy;OFROOT.</div>
 
 			</div>
 
