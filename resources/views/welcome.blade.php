@@ -34,7 +34,8 @@
 							<h2>About Us / Mission</h2>
 						</header>
 						<div class="content">
-							<p><strong>Our Passion for Stories</strong> We understand the transformative power of a good story. Every book we publish is a gateway to adventures, lessons, and emotions that shape a child's worldview. Our team of dedicated writers, illustrators, and editors are committed to crafting tales that entertain, educate, and foster a lifelong love for reading.</p>
+							<p><strong>Our Passion for Stories</strong> We understand the transformative power of a good story. Every book we publish is a gateway to adventures,
+                             lessons, and emotions that shape a child's worldview. Our team of dedicated writers, illustrators, and editors are committed to crafting tales that entertain, educate, and foster a lifelong love for reading.</p>
 							<!-- <span class="image main"><img src="{{ asset('images/second.png') }}" alt="" /></span> -->
 						</div>
 					</section>

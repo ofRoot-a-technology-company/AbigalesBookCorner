@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <script src="https://use.fontawesome.com/a7bffd41d3.js"></script>
-    <title>BeingHMN - {{ $article->title ?? '' }} </title>
+    <title>BeingHMN - {{ $blogPost->title ?? '' }} </title>
     <!-- for share buttons -->
     <script type="text/javascript" src="https://platform-api.sharethis.com/js/sharethis.js#property=61318964495f05001236fdfe&product=inline-share-buttons" async="async"></script>
     <link rel="stylesheet" href="{{ asset('blog/css/showBlog.css') }}">
@@ -35,7 +35,7 @@
     <ul class="navbar-nav ml-auto">
     <?php
       $uri = Request::getRequestUri();
-      $article_id = $article->id ?? '';
+      $article_id = $blogPost->id ?? '';
       if ($uri){
         echo ('<li class="nav-item"><a class="nav-link" href="/"><strong>HOME</strong></a></li>');
         echo ('<li class="nav-item"><a class="nav-link" href="/about"><strong>ABOUT </strong></a></li>');
@@ -56,7 +56,7 @@
         <article>
             <div class="mt-5 row">
                 <h1 class="col-lg text-center mb-1">
-                     {{ $article->title ?? ''}}
+                     {{ $blogPost->title ?? ''}}
                 </h1>
             </div>
             <div class="row">
@@ -71,7 +71,7 @@
                 <div class="col-12">
                     <p class="text-center"
                        style="font-size:12px;">
-                        {{ $article->created_at->format('m-d-Y') ?? ''  }}
+                        <!--  TODO add created_at field later  -->
                     </p>
                 </div>
             </div>
@@ -79,7 +79,7 @@
             <div class="row">
                 <div class="col-12 text-center">
                        <blockquote style="color: grey; font-size: 12px;" class="blockquote">
-                            {{ $article->quip ?? '' }}
+                            {{ $blogPost->quip ?? '' }}
                        </blockquote>
                 </div>
             </div>
@@ -88,7 +88,7 @@
                 <div class="col-12">
                     <p class="text-center"
                        style="font-size:12px;">
-                        {{ $article->intro }}
+                        {{ $blogPost->intro ?? '' }}
                     </p>
                 </div>
             </div>
@@ -103,346 +103,346 @@
 
             <div class="row">
                 <div class="col-md text-center">
-                      <img class="img-responsive" src="{{ $article->image_name ?? '' }}" alt="article image" height="auto" width="99%;">
+                      <img class="img-responsive" src="{{ $blogPost->image_name ?? '' }}" alt="article image" height="auto" width="99%;">
                 </div>
             </div>
             <div class="row">
                 <div class="col-12" style="margin-left: 10%;">
-                     <p style="color: black; font-size:10px;" class="col-sm"> {!! $article->imageCredit1 !!} </p>
+                     <p style="color: black; font-size:10px;" class="col-sm"> {!! $blogPost->imageCredit1 ?? '' !!} </p>
                 </div>
             </div>
 
-            @if ($article->heading1)
+            @if(isset($blogPost->heading1))
                 <div class="row">
                     <div class="col-md mt-5 mb-1 text-center">
-                        <h2> {{ $article->heading1 }} </h2>
+                        <h2> {{ $blogPost->heading1 ?? '' }} </h2>
                     </div>
                 </div>
-                @if($article->image1_name)
+                @if($blogPost->image1_name)
                 <div class="row">
                     <div class="col-md text-center mt-2">
-                          <img class="img-responsive" src="{{$article->image1_name ?? ''}}" alt="article image" height="auto" width="75%;">
+                          <img class="img-responsive" src="{{$blogPost->image1_name ?? ''}}" alt="article image" height="auto" width="75%;">
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-12" style="margin-left: 10%;">
-                          <p style="color: black; font-size:10px;" class="col-sm"> {!! $article->imageCredit !!} </p>
+                          <p style="color: black; font-size:10px;" class="col-sm"> {!! $blogPost->imageCredit !!} </p>
                     </div>
                 </div>
                 @endif
 
                 <div class="row">
                     <div class="col-md">
-                        <p class="mt-1 ml-5 mr-5 mb-1"> {!! $article->paragraph1Heading1 !!} </p>
+                        <p class="mt-1 ml-5 mr-5 mb-1"> {!! $blogPost->paragraph1Heading1 !!} </p>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md">
-                        <p class="mt-1 ml-5 mr-5 mb-1"> {{ $article->paragraph2Heading1 }} </p>
+                        <p class="mt-1 ml-5 mr-5 mb-1"> {{ $blogPost->paragraph2Heading1 }} </p>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md">
-                        <p class="mt-1 ml-5 mr-5 mb-5"> {{ $article->paragraph3Heading1 }} </p>
+                        <p class="mt-1 ml-5 mr-5 mb-5"> {{ $blogPost->paragraph3Heading1 }} </p>
                     </div>
                 </div>
             @endif
 
-            @if($article->heading2)
+            @if(isset($blogPost->heading2))
                 <div class="row">
                     <div class="col-md mt-3 text-center">
-                        <h2> {{ $article->heading2 }} </h2>
+                        <h2> {{ $blogPost->heading2 }} </h2>
                     </div>
                 </div>
-                @if($article->image2_name)
+                @if($blogPost->image2_name)
                 <div class="row">
                     <div class="col-md text-center mt-2">
-                         <img class="img-responsive" src="{{$article->image2_name ?? ''}}" alt="article image" height="auto" width="75%;">
+                         <img class="img-responsive" src="{{$blogPost->image2_name ?? ''}}" alt="article image" height="auto" width="75%;">
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-12" style="margin-left: 10%;">
-                        <p style="color: black; font-size:10px;" class="col-sm"> {!! $article->imageCredit2 !!} </p>
+                        <p style="color: black; font-size:10px;" class="col-sm"> {!! $blogPost->imageCredit2 !!} </p>
                     </div>
                 </div>
             @endif
                 <div class="row ">
                     <div class="col-md text-left">
-                        <p class="mt-1 ml-5 mr-5 mb-1"> {{ $article->paragraph1Heading2 }} </p>
+                        <p class="mt-1 ml-5 mr-5 mb-1"> {{ $blogPost->paragraph1Heading2 }} </p>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md text-left">
-                        <p class="mt-1 ml-5 mr-5 mb-1"> {{ $article->paragraph2Heading2 }} </p>
+                        <p class="mt-1 ml-5 mr-5 mb-1"> {{ $blogPost->paragraph2Heading2 }} </p>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md text-left">
-                        <p class="mt-1 ml-5 mr-5 mb-5"> {{ $article->paragraph3Heading2 }} </p>
+                        <p class="mt-1 ml-5 mr-5 mb-5"> {{ $blogPost->paragraph3Heading2 }} </p>
                     </div>
                 </div>
             @endif
-            @if($article->heading3)
-                <div class="row">
+            @if(isset($blogPost->heading3))
+            <div class="row">
                     <div class="col-md text-center">
-                        <h2> {{ $article->heading3 }} </h2>
+                        <h2> {{ $blogPost->heading3 }} </h2>
                     </div>
                 </div>
-                @if($article->image3_name)
+                @if($blogPost->image3_name)
                 <div class="row">
                     <div class="col-md text-center mt-2">
-                        <img class="img-responsive" src="{{ $article->image3_name }}" alt="article image" height="auto" width="75%;">
+                        <img class="img-responsive" src="{{ $blogPost->image3_name }}" alt="article image" height="auto" width="75%;">
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-12 mt-1" style="margin-left: 10%;">
-                        <p style="color: black; font-size:10px;" class="col-sm"> {!! $article->imageCredit3 !!} </p>
+                        <p style="color: black; font-size:10px;" class="col-sm"> {!! $blogPost->imageCredit3 !!} </p>
                     </div>
                 </div>
                 @endif
                 <div class="row">
                     <div class="col-md">
-                        <p class="mt-1 ml-5 mr-5 mb-1"> {{ $article->paragraph1Heading3 }} </p>
+                        <p class="mt-1 ml-5 mr-5 mb-1"> {{ $blogPost->paragraph1Heading3 }} </p>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md">
-                        <p class="mt-1 ml-5 mr-5 mb-1"> {{ $article->paragraph2Heading3 }} </p>
+                        <p class="mt-1 ml-5 mr-5 mb-1"> {{ $blogPost->paragraph2Heading3 }} </p>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md">
-                        <p class="mt-1 ml-5 mr-5 mb-5"> {{ $article->paragraph3Heading3 }} </p>
+                        <p class="mt-1 ml-5 mr-5 mb-5"> {{ $blogPost->paragraph3Heading3 }} </p>
                     </div>
                 </div>
             @endif
-            @if($article->heading4)
+            @if(isset($blogPost->heading4))
                 <div class="row">
                     <div class="col-md text-center">
-                        <h2> {{ $article->heading4 }} </h2>
+                        <h2> {{ $blogPost->heading4 }} </h2>
                     </div>
                 </div>
-                @if($article->image4_name)
+                @if($blogPost->image4_name)
                 <div class="row">
                     <div class="col-md text-center mt-2">
                          <img class="img-responsive"
-                              src="{{ $article->image4_name ?? '' }}" alt="article image" width="80%;" max-height="75%;">
+                              src="{{ $blogPost->image4_name ?? '' }}" alt="article image" width="80%;" max-height="75%;">
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-12 mt-1" style="margin-left: 10%;">
-                         <p style="color: black; font-size:10px;" class="col-sm"> {!! $article->imageCredit4 !!} </p>
+                         <p style="color: black; font-size:10px;" class="col-sm"> {!! $blogPost->imageCredit4 !!} </p>
                     </div>
                 </div>
                 @endif
                 <div class="row">
                     <div class="col-md">
-                        <p class="mt-1 ml-5 mr-5 mb-1"> {{ $article->paragraph1Heading4 }}</p>
+                        <p class="mt-1 ml-5 mr-5 mb-1"> {{ $blogPost->paragraph1Heading4 }}</p>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md">
-                        <p class="mt-1 ml-5 mr-5 mb-1"> {{ $article->paragraph2Heading4 }}</p>
+                        <p class="mt-1 ml-5 mr-5 mb-1"> {{ $blogPost->paragraph2Heading4 }}</p>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md">
-                        <p class="mt-1 ml-5 mr-5 mb-5"> {{ $article->paragraph3Heading4 }}</p>
+                        <p class="mt-1 ml-5 mr-5 mb-5"> {{ $blogPost->paragraph3Heading4 }}</p>
                     </div>
                 </div>
             @endif
-            @if($article->heading5)
+            @if(isset($blogPost->heading5))
                 <div class="row">
                     <div class="col-md mb-3 text-center">
-                        <h2> {{ $article->heading5 }} </h2>
+                        <h2> {{ $blogPost->heading5 }} </h2>
                     </div>
                 </div>
-                @if($article->image5_name)
+                @if($blogPost->image5_name)
                 <div class="row">
                     <div class="col-md text-center mt-2">
-                      <img class="img-responsive" src="{{ $article->image5_name ?? '' }}" alt="article image" height="auto" width="75%;">
+                      <img class="img-responsive" src="{{ $blogPost->image5_name ?? '' }}" alt="article image" height="auto" width="75%;">
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-12 mt-1" style="margin-left: 10%;">
-                       <p style="color: black; font-size:10px;" class="col-sm"> {!! $article->imageCredit5 !!} </p>
+                       <p style="color: black; font-size:10px;" class="col-sm"> {!! $blogPost->imageCredit5 !!} </p>
                     </div>
                 </div>
                 @endif
                 <div class="row">
                     <div class="col-md">
-                        <p class="mt-1 ml-5 mr-5 mb-1"> {{ $article->paragraph1Heading5 }} </p>
+                        <p class="mt-1 ml-5 mr-5 mb-1"> {{ $blogPost->paragraph1Heading5 }} </p>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md">
-                        <p class="mt-1 ml-5 mr-5 mb-1"> {{ $article->paragraph2Heading5 }} </p>
+                        <p class="mt-1 ml-5 mr-5 mb-1"> {{ $blogPost->paragraph2Heading5 }} </p>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md">
-                        <p class="mt-1 ml-5 mr-5 mb-5"> {{ $article->paragraph3Heading5 }} </p>
+                        <p class="mt-1 ml-5 mr-5 mb-5"> {{ $blogPost->paragraph3Heading5 }} </p>
                     </div>
                 </div>
             @endif
-            @if($article->heading6)
+            @if(isset($blogPost->heading6))
                 <div class="row">
                     <div class="col-md mb-3 text-center">
-                        <h2> {{ $article->heading6 }} </h2>
+                        <h2> {{ $blogPost->heading6 }} </h2>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md text-center mt-2">
-                        <img class="img-responsive" src="{{ $article->image6_name ?? '' }}" alt="article image" height="auto" width="75%;">
+                        <img class="img-responsive" src="{{ $blogPost->image6_name ?? '' }}" alt="article image" height="auto" width="75%;">
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-12 mt-1" style="margin-left: 10%; font-size:12px">
-                        <p style="color: black; font-size:10px;" class="col-sm"> {!! $article->imageCredit6 !!} </p>
+                        <p style="color: black; font-size:10px;" class="col-sm"> {!! $blogPost->imageCredit6 !!} </p>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md">
-                        <p class="mt-1 ml-5 mr-5 mb-1"> {{ $article->paragraph1Heading6 }} </p>
+                        <p class="mt-1 ml-5 mr-5 mb-1"> {{ $blogPost->paragraph1Heading6 }} </p>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md">
-                        <p class="mt-1 ml-5 mr-5 mb-1"> {{ $article->paragraph2Heading6 }} </p>
+                        <p class="mt-1 ml-5 mr-5 mb-1"> {{ $blogPost->paragraph2Heading6 }} </p>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md">
-                        <p class="mt-1 ml-5 mr-5 mb-5"> {{ $article->paragraph3Heading6 }} </p>
+                        <p class="mt-1 ml-5 mr-5 mb-5"> {{ $blogPost->paragraph3Heading6 }} </p>
                     </div>
                 </div>
             @endif
-            @if($article->heading7)
+            @if(isset($blogPost->heading7))
                 <div class="row">
                     <div class="col-md mb-3 text-center">
-                        <h2> {{ $article->heading7 }} </h2>
+                        <h2> {{ $blogPost->heading7 }} </h2>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md text-center mt-2">
-                        <img class="img-responsive" src="{{ $article->image7_name ?? '' }}" alt="article image" height="auto" width="75%;">
+                        <img class="img-responsive" src="{{ $blogPost->image7_name ?? '' }}" alt="article image" height="auto" width="75%;">
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-12 mt-1" style="margin-left: 10%; font-size:12px">
-                        <p style="color: black; font-size:10px;" class="col-sm"> {!! $article->imageCredit7 !!} </p>
+                        <p style="color: black; font-size:10px;" class="col-sm"> {!! $blogPost->imageCredit7 !!} </p>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md text-center">
-                        <p class="mt-1 ml-5 mr-5 mb-1"> {{ $article->paragraph1Heading7 }} </p>
+                        <p class="mt-1 ml-5 mr-5 mb-1"> {{ $blogPost->paragraph1Heading7 }} </p>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md text-center">
-                        <p class="mt-1 ml-5 mr-5 mb-1"> {{ $article->paragraph2Heading7 }} </p>
+                        <p class="mt-1 ml-5 mr-5 mb-1"> {{ $blogPost->paragraph2Heading7 }} </p>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md text-center">
-                        <p class="mt-1 ml-5 mr-5 mb-5"> {{ $article->paragraph3Heading7 }} </p>
+                        <p class="mt-1 ml-5 mr-5 mb-5"> {{ $blogPost->paragraph3Heading7 }} </p>
                     </div>
                 </div>
             @endif
-            @if($article->heading8)
+            @if(isset($blogPost->heading8))
                 <div class="row">
                     <div class="col-md mb-3 text-center">
-                        <h2> {{ $article->heading8 }} </h2>
+                        <h2> {{ $blogPost->heading8 }} </h2>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md text-center mt-2">
-                        <img class="img-responsive" src="{{ $article->image8_name ?? '' }}" alt="article image" height="auto" width="75%;">
+                        <img class="img-responsive" src="{{ $blogPost->image8_name ?? '' }}" alt="article image" height="auto" width="75%;">
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-12 mt-1" style="margin-left: 10%; font-size:12px">
-                        <p style="color: black; font-size:10px;" class="col-sm"> {!! $article->imageCredit8 !!} </p>
+                        <p style="color: black; font-size:10px;" class="col-sm"> {!! $blogPost->imageCredit8 !!} </p>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md text-center">
-                        <p class="mt-1 ml-5 mr-5 mb-1"> {{ $article->paragraph1Heading8 }} </p>
+                        <p class="mt-1 ml-5 mr-5 mb-1"> {{ $blogPost->paragraph1Heading8 }} </p>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md text-center">
-                        <p class="mt-1 ml-5 mr-5 mb-1"> {{ $article->paragraph2Heading8 }} </p>
+                        <p class="mt-1 ml-5 mr-5 mb-1"> {{ $blogPost->paragraph2Heading8 }} </p>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md text-center">
-                        <p class="mt-1 ml-5 mr-5 mb-5"> {{ $article->paragraph3Heading8 }} </p>
+                        <p class="mt-1 ml-5 mr-5 mb-5"> {{ $blogPost->paragraph3Heading8 }} </p>
                     </div>
                 </div>
             @endif
-            @if($article->heading9)
+            @if(isset($blogPost->heading9))
                 <div class="row">
                     <div class="col-md mb-3 text-center">
-                        <h2> {{ $article->heading9 }} </h2>
+                        <h2> {{ $blogPost->heading9 }} </h2>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md text-center mt-2">
-                        <img class="img-responsive" src="{{ $article->image9_name ?? '' }}" alt="article image" height="auto" width="75%;">
+                        <img class="img-responsive" src="{{ $blogPost->image9_name ?? '' }}" alt="article image" height="auto" width="75%;">
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-12 mt-1" style="margin-left: 10%; font-size:12px">
-                        <p style="color: black; font-size:10px;" class="col-sm"> {!! $article->imageCredit9 !!} </p>
+                        <p style="color: black; font-size:10px;" class="col-sm"> {!! $blogPost->imageCredit9 !!} </p>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md text-center">
-                        <p class="mt-1 ml-5 mr-5 mb-1"> {{ $article->paragraph1Heading9 }} </p>
+                        <p class="mt-1 ml-5 mr-5 mb-1"> {{ $blogPost->paragraph1Heading9 }} </p>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md text-center">
-                        <p class="mt-2 ml-5 mr-5 mb-5"> {{ $article->paragraph2Heading9 }} </p>
+                        <p class="mt-2 ml-5 mr-5 mb-5"> {{ $blogPost->paragraph2Heading9 }} </p>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md text-center">
-                        <p class="mt-1 ml-5 mr-5 mb-5"> {{ $article->paragraph3Heading9 }} </p>
+                        <p class="mt-1 ml-5 mr-5 mb-5"> {{ $blogPost->paragraph3Heading9 }} </p>
                     </div>
                 </div>
             @endif
-            @if($article->heading10)
+            @if(isset($blogPost->heading10))
                 <div class="row">
                     <div class="col-md mb-3 text-center">
-                        <h2> {{ $article->heading10 }} </h2>
+                        <h2> {{ $blogPost->heading10 }} </h2>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md text-center mt-2">
-                    <img class="img-responsive" src="{{ $article->image10_name ?? '' }}" alt="article image" height="auto" width="75%;">
+                    <img class="img-responsive" src="{{ $blogPost->image10_name ?? '' }}" alt="article image" height="auto" width="75%;">
                     </div>
                 </div>
 
                 <div class="row">
                     <div class="col-12 mt-1" style="margin-left: 10%; font-size:12px">
-                    <p style="color: black; font-size:10px;" class="col-sm"> {!! $article->imageCredit10 !!} </p>
+                    <p style="color: black; font-size:10px;" class="col-sm"> {!! $blogPost->imageCredit10 !!} </p>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md text-center">
-                        <p class="mt-1 ml-5 mr-5 mb-1"> {{ $article->paragraph1Heading10 }} </p>
+                        <p class="mt-1 ml-5 mr-5 mb-1"> {{ $blogPost->paragraph1Heading10 }} </p>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md text-center">
-                        <p class="mt-1 ml-5 mr-5 mb-1"> {{ $article->paragraph2Heading10 }} </p>
+                        <p class="mt-1 ml-5 mr-5 mb-1"> {{ $blogPost->paragraph2Heading10 }} </p>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md text-center">
-                        <p class="mt-1 ml-5 mr-5 mb-5"> {{ $article->paragraph3Heading10 }} </p>
+                        <p class="mt-1 ml-5 mr-5 mb-5"> {{ $blogPost->paragraph3Heading10 }} </p>
                     </div>
                 </div>
             @endif
@@ -450,12 +450,10 @@
     </div>
 
   <!-- Because there's a few different articles types, lets make sure the correct route is chosen -->
-
-
     <div class="row justify-content-center mt-3 mb-4">
         <div class="col-lg text-center">
             <button class="btn btn-lg btn-dark">
-                <a style="color:white;" href="/{{ $articleType }}">Go Back</a>
+                <a style="color:white;" href="/{{ $articleType ?? ''}}">Go Back</a>
             </button>
         </div>
     </div>
